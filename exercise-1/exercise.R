@@ -11,7 +11,7 @@ library("jsonlite")
 reponse <- GET("http://data.unhcr.org/api/stats/time_series_years.json")
 # convert JSON string to a list!!!
 body <- content(response,"text")
-str(body)
+
  
 # What is the "country code" for the "Syrian Arab Republic"?
 
