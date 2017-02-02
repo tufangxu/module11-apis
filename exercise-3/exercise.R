@@ -61,12 +61,14 @@ print(poke.data$moves)
 
 # Food for thought
 # What do you think is the diffrence between the two outputs above? Why are they diffrent?
+# keys are data frames, each key is one data frame!!
 # poke.data is list, with keys; poke.data$moves is data frame
 
 # Create a data frame named poke.moves with the moves. be sure to use the head function to only get the
 # first few values. Feel free to use view to look at the dataframe.
 poke.moves <- head(poke.data$moves)
 View(poke.moves)
+
 # Flatten the poke.moves data frame
 poke.moves <- flatten(poke.moves)
 is.data.frame(poke.moves)
@@ -80,7 +82,7 @@ move.names <- poke.moves %>% select(move.name)
 
 # Using dplyr add one coloumn that indicates the type of the move (feel free to guess!) and one column that 
 # indicates on a scale of 1-5 how much you like that move, with 1 being not at all and 5 being it's my favorite. 
-move.names <- mutate(poke.moves, move.type = c("slap","kick","jump","gunshot","fire","earthquake"),scale = c(2,1,2,3,4,5))
+move.names <- mutate(poke.moves, move.type = c("slap","kick","jump","gunshot","fire","earthquake"),scale = runif(6,1,.5))
 
 # Using dplyr order the moves by rank. Higher ranking moves should be on the top of the dataframe. 
 move.names <- arrange(move.names,scale)
